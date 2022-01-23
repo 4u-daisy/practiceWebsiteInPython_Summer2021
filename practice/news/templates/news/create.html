@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Форма по добавлению статьи</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/main/css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <style>
+        .alert-warning {
+float:left;
+clear: both;
+width: 350px;
+margin: 15px 34%;
+text-align: center;
+}
+form {
+margin-left: 32%;
+width: 500px;
+margin-top: 50px;
+}
+    </style>
+</head>
+<body>
+    <aside>
+        <img src="/static/main/img/5VPyaTz_XOA.jpg" alt="miao" width="200px">
+        <p class="logo">Iris</p>
+        <h3>Navigation</h3>
+        <ul>
+            <a href="{%url 'home'%}"><li><i class="fas fa-home"></i>Home</li></a>
+            <a href="{%url 'about'%}"><li><i class="fas fa-cat"></i>About me</li></a>
+            <a href="{%url 'hews_home'%}"><li><i class="fas fa-newspaper"></i>news</li></a>
+            <a href="/admin"><li><i class="fas fa-users-cog"></i>admin</li></a>
+            <a href=""><li><i class="far fa-id-card"></i>Contacts</li></a>
+            <a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fas fa-plus"></i>Добавить запись</button></li></a>
+        </ul>
+
+    </aside>
+    <main>
+        <div class="features">
+            <h1>Добавь свою статью!</h1>
+            <form method="post">
+               {% csrf_token %}
+                {{ form.title }} <br>
+                {{ form.anons }} <br>
+                {{ form.full_text }} <br>
+                {{ form.date }} <br>
+                <button class="btn btn-success" type="submit">Добавить статью!</button>
+           </form>
+        </div>
+    </main>
+
+</body>
+</html>
